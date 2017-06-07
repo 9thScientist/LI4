@@ -146,6 +146,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Avaliacao.cs" />
+    <Compile Include="Models\Dia.cs" />
+    <Compile Include="Models\Establecimento.cs" />
+    <Compile Include="Models\Intervalo.cs" />
+    <Compile Include="Models\InvalidInputException.cs" />
+    <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\Sugestao.cs" />
+    <Compile Include="Models\SugestaoEstablecimento.cs" />
+    <Compile Include="Models\SugestaoProduto.cs" />
+    <Compile Include="Models\Utilizador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -188,7 +198,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
