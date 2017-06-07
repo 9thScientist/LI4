@@ -1,19 +1,22 @@
-public class Produto
+using System;
+using System.Collections.Generic;
+
+public class Produto : ICloneable
 {
-    public int id { get; set; }
-    public int regime { get; set; }
-    public string imagem { get; set; }
-    public string nome { get; set; }
-    public List<string> ingredientes {
-        get { return new List<string>(ingredientes); }
-        set { ingredientes = new List<string>(value); }
-        }
+    public int Id { get; set; }
+    public int Establecimento { get; set; }
+    public string Imagem { get; set; }
+    public string Nome { get; set; }
+    public string Regime { get; set; }
+    public List<string> Ingredientes {
+        get { return new List<string>(Ingredientes); }
+        set { Ingredientes = new List<string>(value); }
     }
-    public list<Avaliacao> avaliacoes {
+    public List<Avaliacao> Avaliacoes {
         get {
             List<Avaliacao> ret = new List<Avaliacao>();
         
-            foreach (Avaliacao a in avaliacoes)
+            foreach (Avaliacao a in this.Avaliacoes)
             {
                 ret.Add((Avaliacao) a.Clone());
             }
@@ -21,21 +24,46 @@ public class Produto
             return ret;
         }
         
-        set { this.ingredientes = new list<string>(value); }
+        set {
+            this.Avaliacoes = new List<Avaliacao>();
+            
+            foreach( Avaliacao a in value)
+            {
+                this.Avaliacoes.Add((Avaliacao) a.Clone());
+            }
+        }
     }
 
-    public Produto(int id, string imagem, string nome, int regime, List<string> ingredientes)
+    public Produto(int id, string imagem, string nome, string regime, List<string> ingredientes)
     {
-        this.id = id;
-        this.imagem = imagem;
-        this.nome = nome;
-        this.regime = regime;
-        this.ingredientes = new List<string>(ingredientes);
-        this.avaliacoes = new List<Avaliacao>();
+        Id = id;
+        Imagem = imagem;
+        Nome = nome;
+        Regime = regime;
+        Ingredientes = new List<string>(ingredientes);
+        Avaliacoes = new List<Avaliacao>();
     }
-    
-    public void addRating(Avaliacao avaliacao)
+
+    private Produto(int id, string imagem, string nome, string regime, List<string> ingredientes, List<Avaliacao> avaliacoes)
     {
-        avaliacoes.Add((Avalaiacao) avaliacao.Clone());
+        Id = id;
+        Imagem = imagem;
+        Nome = nome;
+        Regime = regime;
+        Ingredientes = new List<string>(ingredientes);
+        Avaliacoes = new List<Avaliacao>();
+
+        foreach (Avaliacao a in avaliacoes)
+            Avaliacoes.Add((Avaliacao)a.Clone());
+    }
+
+    public void AddRating(Avaliacao avaliacao)
+    {
+        Avaliacoes.Add((Avaliacao) avaliacao.Clone());
+    }
+
+    public object Clone()
+    {
+        return new Produto(Id, Imagem, Nome, Regime, Ingredientes, Avaliacoes);
     }
 }

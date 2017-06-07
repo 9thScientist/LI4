@@ -1,16 +1,18 @@
+using System;
+
 public class Intervalo : ICloneable
 {
-    public TimeSpan abertura { get; set; }
-    public TimeSpan fecho { get; set; }
+    public TimeSpan Abertura { get; set; }
+    public TimeSpan Fecho { get; set; }
 
     public Intervalo(TimeSpan abertura, TimeSpan fecho)
     {
-        this.abertura = abertura;
-        this.fecho = fecho;
+        this.Abertura = abertura;
+        this.Fecho = fecho;
     }
 
-    public Intervalo Clone()
+    public object Clone()
     {
-        return new Intervalo(abertura, fecho);
+        return new Intervalo(Abertura, Fecho);
     }
 }

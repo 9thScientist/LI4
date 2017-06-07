@@ -1,24 +1,27 @@
 using System;
 public class Avaliacao : ICloneable 
 {
-    public int rating { 
-        get; 
+    public int Rating {
+        get
+        {
+            return Rating;
+        }
         set
         {
-        if (value < 1 || value > 5)
-            throw new InvalidInputException("Rating must be between 1 and 5.");
+            if (value < 1 || value > 5)
+                throw new InvalidInputException("Rating must be between 1 and 5.");
 
-        this.rating = value;
+            this.Rating = value;
         }
     }
-    public string comment { get; set; }
-    public DateTime date { get; set; }
+    public string Comment { get; set; }
+    public DateTime Date { get; set; }
     
     public Avaliacao(int rating, string comment, DateTime date)
     {
-        this.rating = rating;
-        this.comment = comment;
-        this.date = date;
+        this.Rating = rating;
+        this.Comment = comment;
+        this.Date = date;
     }
 
     public object Clone()

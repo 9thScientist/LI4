@@ -1,33 +1,36 @@
+using System;
+using System.Collections.Generic;
+
 public class Dia : ICloneable
 {
-    public List<Intervalo> intervalos {
+    public List<Intervalo> Intervalos {
         get {
             List<Intervalo> ret = new List<Intervalo>();
 
-            foreach (Intervalo i in intervalos)
+            foreach (Intervalo i in Intervalos)
                 ret.Add((Intervalo) i.Clone());
 
             return ret;
         }
 
         set {
-            intervalos = new List<Intervalo>();
+            Intervalos = new List<Intervalo>();
 
             foreach(Intervalo i in value)
-                intervalos.Add((Intervalo) i.Clone);
+                Intervalos.Add((Intervalo) i.Clone());
         }
     }
     
-    public Dia(List<Intervalo> intervalos)
+    public Dia(List<Intervalo> intervls)
     {
-        intervalos = new List<Intervalo>();
+        Intervalos = new List<Intervalo>();
 
-        foreach(Intervalo i in value)
-            intervalos.Add((Intervalo) i.Clone);
+        foreach(Intervalo i in intervls)
+            Intervalos.Add((Intervalo) i.Clone());
     }
 
-    public Dia Clone()
+    public object Clone()
     {
-        return new Dia(intervalos);
+        return new Dia(Intervalos);
     }
 }
