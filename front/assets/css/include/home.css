@@ -66,16 +66,16 @@ input:-ms-input-placeholder {
 }
 
 .image1{
-	background-image:url("../img/1.jpg");
+	background-image:url("../../img/1.jpg");
 }
 
 .image2{
-	background-image:url("../img/2.jpg");
+	background-image:url("../../img/2.jpg");
 	color:#333;
 }
 
 .image3{
-	background-image:url("../img/3.jpg");
+	background-image:url("../../img/3.jpg");
 	color:#333;
 }
 
@@ -200,4 +200,9 @@ input:-ms-input-placeholder {
 
 .login-text{
 	color: #fff;
+}
+
+.text-but{
+	font-size: 20px;
+	border-radius: 10px;
 }
